@@ -10,8 +10,6 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  bool isLoading = true;
-
   late WebViewController webView;
 
   Future<bool> _onBack() async {
@@ -35,28 +33,18 @@ class HomeState extends State<Home> {
             children: [
               WebView(
                 initialUrl: 'https://ecohotels.com/',
-                javascriptMode: JavascriptMode.unrestricted,
-                gestureNavigationEnabled: true,
-                navigationDelegate: (NavigationRequest request) {
-                  if (request.url.startsWith('https://ecohotels.com/')) {
-                    return NavigationDecision.navigate;
-                  } else {
-                    launchUrl(request.url as Uri);
-                    return NavigationDecision.prevent;
-                  }
-                },
-                onPageStarted: (url) {
-                  setState(() {
-                    isLoading = true;
-                  });
-                },
-                onPageFinished: (status) {
-                  setState(() {
-                    isLoading = false;
-                  });
-                },
                 onWebViewCreated: (WebViewController controller) {
                   webView = controller;
+                },
+                javascriptMode: JavascriptMode.unrestricted,
+                gestureNavigationEnabled: true,
+                navigationDelegate: (navigation) {
+                  final host = Uri.parse(navigation.url).host;
+                  if (host.contains('ecohotels.com')) {
+                    return NavigationDecision.navigate;
+                  }
+                  launchUrl(host.toString() as Uri);
+                  return NavigationDecision.prevent;
                 },
               ),
             ],

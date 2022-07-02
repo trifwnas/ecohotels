@@ -5,10 +5,10 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import 'blog.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const EcoHotels());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class EcoHotels extends StatelessWidget {
+  const EcoHotels({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
