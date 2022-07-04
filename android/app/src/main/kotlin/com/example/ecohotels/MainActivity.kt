@@ -1,4 +1,4 @@
-package com.example.ecohotels
+package com.ecohotels.ecohotels
 
 import io.flutter.embedding.android.FlutterActivity
 

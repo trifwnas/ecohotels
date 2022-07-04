@@ -1,9 +1,7 @@
-import 'dart:async';
+//import 'dart:async';
 import 'package:ecohotels/home.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
-import 'blog.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
 
 void main() => runApp(const EcoHotels());
 
@@ -13,11 +11,12 @@ class EcoHotels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MyStatefulWidget(),
-      color: Color(0xff27a495),
+      home: Home(),
+      //home: MyStatefulWidget(),
     );
   }
 }
+/*
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
@@ -65,3 +64,4 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
+*/
