@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,6 +20,15 @@ class HomeState extends State<Home> {
       return false;
     } else {
       return true;
+    }
+  }
+
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $url';
     }
   }
 
@@ -43,7 +52,8 @@ class HomeState extends State<Home> {
                   if (host.contains('ecohotels.com')) {
                     return NavigationDecision.navigate;
                   }
-                  launchUrl(host.toString() as Uri);
+                  final Uri url = Uri.parse(navigation.url);
+                  _launchInBrowser(url);
                   return NavigationDecision.prevent;
                 },
               ),
