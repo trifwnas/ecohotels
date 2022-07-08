@@ -2,7 +2,7 @@
     package="com.ecohotels.ecohotels">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="EcoHotels"
+        android:label="EcoHotels.com"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

@@ -37,11 +37,14 @@ class HomeState extends State<Home> {
     return WillPopScope(
       onWillPop: () => _onBack(),
       child: Scaffold(
+        backgroundColor: const Color(0xff27a495),
         body: SafeArea(
           child: Stack(
             children: [
               WebView(
-                initialUrl: 'https://ecohotels.com/',
+                zoomEnabled: false,
+                initialUrl:
+                    'https://ecohotels.com/?mobile_webview_app=50e8909b-d860-47c6-a46a-e27a8af112d0',
                 onWebViewCreated: (WebViewController controller) {
                   webView = controller;
                 },
