@@ -50,6 +50,7 @@ class HomeState extends State<Home> {
                 },
                 javascriptMode: JavascriptMode.unrestricted,
                 gestureNavigationEnabled: true,
+                backgroundColor: const Color(0xff27a495),
                 navigationDelegate: (navigation) {
                   final host = Uri.parse(navigation.url).host;
                   if (host.contains('ecohotels.com')) {
@@ -59,6 +60,7 @@ class HomeState extends State<Home> {
                   _launchInBrowser(url);
                   return NavigationDecision.prevent;
                 },
+                //onWebResourceError:
               ),
             ],
           ),
@@ -66,4 +68,9 @@ class HomeState extends State<Home> {
       ),
     );
   }
+  /*
+    Future<void> _noInternetLoadAsset(
+        WebViewController controller, BuildContext context) async {
+      await controller.loadFlutterAsset('assets/www/nointernet.html');
+    }*/
 }
