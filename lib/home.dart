@@ -53,7 +53,11 @@ class HomeState extends State<Home> {
                 backgroundColor: const Color(0xff27a495),
                 navigationDelegate: (navigation) {
                   final host = Uri.parse(navigation.url).host;
-                  if (host.contains('ecohotels.com')) {
+                  if (host.contains('blog.ecohotels.com')) {
+                    final Uri url = Uri.parse(navigation.url);
+                    _launchInBrowser(url);
+                    return NavigationDecision.prevent;
+                  } else if (host.contains('ecohotels.com')) {
                     return NavigationDecision.navigate;
                   }
                   final Uri url = Uri.parse(navigation.url);
